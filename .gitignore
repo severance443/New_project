@@ -1,0 +1,69 @@
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Docker volumes data (manter estrutura, não dados)
+**/data/loki/*
+**/data/grafana/*
+!**/data/.gitkeep
+
+# Certificates and keys
+**/certificates/*
+!**/certificates/.gitkeep
+*.key
+*.crt
+*.pem
+acme.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sensitive information
+secret_key
+postgres_password
+*.secret

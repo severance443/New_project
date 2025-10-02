@@ -1,0 +1,55 @@
+Título: Central Log Management for Docker + Linux // Grafana Loki - YouTube
+
+URL: https://www.youtube.com/watch?v=KK9FI4OfPUY
+
+Descrição:
+Check out Twingate and supercharge your security: https://bit.ly/3Y1OaZi
+
+In this video, I will guide you through the process of central log management using Grafana Loki. If you're tired of juggling multiple log files and remote servers, this video is for you! I’ll show you how to set up a secure log management system that integrates with your Grafana Monitoring System, making troubleshooting a breeze. We'll also cover the use of Traefik Reverse Proxy and Authentik for enhanced security. Enjoy the journey to a more efficient logging experience!
+
+References
+
+- Grafana Loki Docs: https://grafana.com/docs/loki/latest/
+- Boilerplates Repo: http://github.com/christianlempa/boilerplates
+- Grafana + Prometheus Tutorial: https://youtu.be/9TJx7QTrTyo?si=IzkCjQPdbWSCX0S7
+- Traefik Tutorial: https://youtu.be/-hfejNXqOzA?si=EXRcGYYEvyXmDGmL
+- Authentik Tutorial: https://youtu.be/N5unsATNpJk?si=IvnQV_FccJ23Ir2h
+- Authentik Outpost Tutorial: https://youtu.be/_I3hUI1JQP4?si=Vv8wgP_wk9MkKgAG
+
+________________
+
+💜 Support me and become a Fan!
+   → https://christianlempa.de/patreon
+   → https://www.youtube.com/channel/UCZNhwA1B5YqiY1nLzmM0ZRg/join
+
+💬 Join our Community!
+   → https://christianlempa.de/discord
+
+👉 Follow me everywhere
+   → https://christianlempa.de
+
+________________
+
+Read my Tech Documentation
+https://christianlempa.de/docs
+
+My Gear and Equipment
+https://christianlempa.de/kit
+
+________________
+
+Timestamps:
+
+00:00 Introduction
+02:56 What is Grafana Loki?
+05:15 Architecture Overview
+09:54 Deployment Options
+12:31 Installation Tutorial
+18:42 How to analyze logs
+22:33 Send Docker logs to Loki
+28:57 Basic HTTP authentication
+38:21 Send Server logs to Loki
+42:15 Final thoughts and next stepsCentral Log Management for Docker + Linux // Grafana Loki
+
+________________
+Links can include affiliate links.
