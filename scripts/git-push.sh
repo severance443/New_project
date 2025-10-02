@@ -190,11 +190,14 @@ create_placeholder_files() {
     
     # Criar .gitkeep em diretórios que devem existir mas podem estar vazios
     directories=(
-        "obsidian-vault/Grafana-Loki-Guide/Installation"
-        "obsidian-vault/Grafana-Loki-Guide/Configuration"
-        "obsidian-vault/Grafana-Loki-Guide/Docker-Logs"
-        "obsidian-vault/Grafana-Loki-Guide/Server-Logs"
-        "obsidian-vault/Grafana-Loki-Guide/Security"
+        "docs/obsidian-vault/Grafana-Loki-Guide/Installation"
+        "docs/obsidian-vault/Grafana-Loki-Guide/Configuration"
+        "docs/obsidian-vault/Grafana-Loki-Guide/Docker-Logs"
+        "docs/obsidian-vault/Grafana-Loki-Guide/Server-Logs"
+        "docs/obsidian-vault/Grafana-Loki-Guide/Security"
+        "youtube-tools/transcripts"
+        "youtube-tools/examples"
+        "loki-stack"
     )
     
     for dir in "${directories[@]}"; do

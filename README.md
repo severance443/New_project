@@ -2,7 +2,25 @@
 
 Sistema completo de logs centralizados baseado no **Grafana Loki**, com deploy automático e configuração completa.
 
-## 📋 O que será instalado
+## 📁 Estrutura do Projeto
+
+```
+📦 new_project/
+├── 📂 scripts/                    # Scripts de automação
+│   ├── 🚀 deploy-loki-stack.sh   # Deploy completo do Loki Stack
+│   ├── ⚡ quick-start.sh         # Verificação rápida
+│   ├── 🔧 troubleshoot.sh        # Diagnóstico e correção
+│   ├── 📤 git-push.sh            # Envio automático para GitHub
+│   └── ⚙️ git-setup.sh           # Configuração inicial do Git
+├── 📂 docs/                       # Documentação completa
+│   ├── 📖 GITHUB-GUIDE.md        # Guia de uso do GitHub
+│   └── 📚 obsidian-vault/        # Guias detalhados do Loki
+├── 📂 youtube-tools/              # Ferramentas do YouTube (projeto separado)
+├── 📂 loki-stack/                 # Dados do Loki (criado após deploy)
+└── 📄 README.md                   # Este arquivo
+```
+
+## 🎯 O que será instalado
 
 - **🔍 Grafana Loki** - Agregação e armazenamento de logs
 - **📝 Promtail** - Coleta de logs do sistema e Docker
@@ -13,20 +31,18 @@ Sistema completo de logs centralizados baseado no **Grafana Loki**, com deploy a
 
 ## ⚡ Quick Start
 
-### 1. Deploy Automático
+### 1. Deploy Automático do Loki Stack
 
 ```bash
-# Tornar executável e executar
-chmod +x deploy-loki-stack.sh
-./deploy-loki-stack.sh
+# Deploy completo
+./scripts/deploy-loki-stack.sh
 ```
 
 ### 2. Verificar Instalação
 
 ```bash
 # Verificação rápida
-chmod +x quick-start.sh
-./quick-start.sh
+./scripts/quick-start.sh
 ```
 
 ### 3. Acessar Interfaces
@@ -37,33 +53,27 @@ chmod +x quick-start.sh
 
 ## 🛠️ Scripts Disponíveis
 
-### Deploy Principal
+### 🚀 Deploy e Gerenciamento
 ```bash
-./deploy-loki-stack.sh    # Instalação completa automática
+./scripts/deploy-loki-stack.sh    # Instalação completa automática
+./scripts/quick-start.sh          # Verificação rápida pós-instalação
+./scripts/troubleshoot.sh         # Diagnóstico completo
+./scripts/troubleshoot.sh --logs  # Ver logs dos serviços
+./scripts/troubleshoot.sh --fix   # Corrigir problemas comuns
 ```
 
-### Verificação e Testes
+### 📤 Git e GitHub
 ```bash
-./quick-start.sh          # Verificação rápida pós-instalação
-./troubleshoot.sh         # Diagnóstico completo
-./troubleshoot.sh --logs  # Ver logs dos serviços
-./troubleshoot.sh --fix   # Corrigir problemas comuns
+./scripts/git-setup.sh            # Configuração inicial (apenas uma vez)
+./scripts/git-push.sh             # Envio automático para GitHub
+./scripts/git-push.sh "mensagem"  # Envio com mensagem personalizada
+./scripts/git-push.sh --status    # Ver status do repositório
 ```
 
-### Gerenciamento (após instalação)
+### 🎬 YouTube Tools
 ```bash
-cd ~/loki-stack
-
-# Monitoramento
-./scripts/monitor.sh      # Status geral do sistema
-./scripts/logs.sh         # Ver logs (todos ou específico)
-./scripts/backup.sh       # Criar backup
-
-# Controle de serviços
-docker-compose ps         # Status dos containers
-docker-compose stop       # Parar serviços
-docker-compose start      # Iniciar serviços
-docker-compose restart    # Reiniciar serviços
+cd youtube-tools/
+./youtube-transcript.sh           # Extrair transcripts de vídeos
 ```
 
 ## 📊 Primeiros Passos no Grafana
@@ -105,20 +115,46 @@ docker-compose restart    # Reiniciar serviços
 - **Docker Logs** - Logs dos containers
 - **Security Dashboard** - Monitoramento de segurança
 
+## 📤 Envio para GitHub
+
+### Configuração Inicial (apenas uma vez)
+```bash
+./scripts/git-setup.sh    # Configurar Git e GitHub
+```
+
+### Enviar Arquivos para GitHub
+```bash
+# Envio simples com mensagem automática
+./scripts/git-push.sh
+
+# Envio com mensagem personalizada
+./scripts/git-push.sh "Added new feature"
+./scripts/git-push.sh "Fixed deployment script"
+./scripts/git-push.sh "Updated documentation"
+
+# Ver status do repositório
+./scripts/git-push.sh --status
+
+# Ver informações do repositório
+./scripts/git-push.sh --info
+```
+
 ## 🔧 Configuração Avançada
 
-### Estrutura de Diretórios
-```
-~/loki-stack/
-├── config/
-│   ├── loki/           # Configuração do Loki
-│   ├── promtail/       # Configuração do Promtail
-│   ├── grafana/        # Configuração do Grafana
-│   └── traefik/        # Configuração do Traefik
-├── data/               # Dados persistentes
-├── logs/               # Logs personalizados
-├── scripts/            # Scripts auxiliares
-└── docker-compose.yml  # Configuração principal
+### Gerenciamento após Deploy
+```bash
+cd ~/loki-stack
+
+# Monitoramento
+./scripts/monitor.sh      # Status geral do sistema
+./scripts/logs.sh         # Ver logs (todos ou específico)
+./scripts/backup.sh       # Criar backup
+
+# Controle de serviços
+docker-compose ps         # Status dos containers
+docker-compose stop       # Parar serviços
+docker-compose start      # Iniciar serviços
+docker-compose restart    # Reiniciar serviços
 ```
 
 ### Personalização
@@ -163,7 +199,7 @@ docker-compose restart
 
 #### Containers não iniciam
 ```bash
-./troubleshoot.sh --fix
+./scripts/troubleshoot.sh --fix
 ```
 
 #### Logs não aparecem
@@ -173,7 +209,7 @@ sudo usermod -a -G adm $USER
 sudo usermod -a -G syslog $USER
 
 # Reiniciar
-./troubleshoot.sh --reset
+./scripts/troubleshoot.sh --reset
 ```
 
 #### Erro de certificado SSL
@@ -188,13 +224,13 @@ sudo usermod -a -G syslog $USER
 df -h ~/loki-stack/data/
 
 # Limpar dados antigos
-./troubleshoot.sh --clean
+./scripts/troubleshoot.sh --clean
 ```
 
 ### Logs de Debug
 ```bash
 # Ver logs específicos
-./troubleshoot.sh --logs
+./scripts/troubleshoot.sh --logs
 
 # Ou individualmente
 cd ~/loki-stack
@@ -241,7 +277,7 @@ docker-compose up -d
 
 ## 📚 Documentação Completa
 
-Para documentação detalhada, consulte os guias no diretório `obsidian-vault/Grafana-Loki-Guide/`:
+Para documentação detalhada, consulte os guias em `docs/obsidian-vault/Grafana-Loki-Guide/`:
 
 - **Installation/** - Guias de instalação
 - **Configuration/** - Configuração avançada
@@ -249,42 +285,22 @@ Para documentação detalhada, consulte os guias no diretório `obsidian-vault/G
 - **Server-Logs/** - Configuração de logs do servidor
 - **Security/** - Segurança e autenticação
 
-## 📤 Envio para GitHub
+## 🎬 YouTube Tools
 
-### Configuração Inicial (apenas uma vez)
-```bash
-./git-setup.sh    # Configurar Git e GitHub
-```
-
-### Enviar Arquivos para GitHub
-```bash
-# Envio simples com mensagem automática
-./git-push.sh
-
-# Envio com mensagem personalizada
-./git-push.sh "Added new feature"
-./git-push.sh "Fixed deployment script"
-./git-push.sh "Updated documentation"
-
-# Ver status do repositório
-./git-push.sh --status
-
-# Ver informações do repositório
-./git-push.sh --info
-```
+O projeto inclui ferramentas para extrair transcripts de vídeos do YouTube. Veja `youtube-tools/` para mais detalhes.
 
 ## 🆘 Suporte
 
 ### Comandos de Diagnóstico
 ```bash
 # Diagnóstico completo
-./troubleshoot.sh
+./scripts/troubleshoot.sh
 
 # Status rápido
-./quick-start.sh
+./scripts/quick-start.sh
 
 # Monitoramento contínuo
-watch -n 30 './scripts/monitor.sh'
+watch -n 30 'cd ~/loki-stack && ./scripts/monitor.sh'
 ```
 
 ### Informações do Sistema
@@ -320,4 +336,4 @@ docker stats
 
 **✅ Sistema de logs centralizado funcionando!** 
 
-Para suporte adicional, execute `./troubleshoot.sh` ou consulte a documentação completa.
+Para suporte adicional, execute `./scripts/troubleshoot.sh` ou consulte a documentação completa em `docs/`.
