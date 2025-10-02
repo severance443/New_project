@@ -17,7 +17,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configurações
-REPO_URL="https://github.com/severance443/New_project.git"
+REPO_URL="git@github.com:severance443/New_project.git"
 BRANCH="main"
 
 # Função para logging
